@@ -1,0 +1,17 @@
+#!/bin/sh
+set -e
+
+# Create SSL Key if nothing is present
+if [ ! -e "/usr/local/apache2/conf/server.crt" ] && [ ! -e "/usr/local/apache2/conf/server.key" ]; then 
+   openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -subj "/C=/ST=/L=/O=/CN=${HTTPD_SERVERNAME}" \
+     -out "/usr/local/apache2/conf/server.crt" -keyout "/usr/local/apache2/conf/server.key";
+fi
+
+if [ ! -e "/usr/local/apache2/conf/remoteca.crt" ]; then 
+   cp /usr/local/apache2/conf/server.crt /usr/local/apache2/conf/remoteca.crt;
+fi
+
+# Apache gets grumpy about PID files pre-existing
+rm -f /usr/local/apache2/logs/httpd.pid
+
+exec httpd -DFOREGROUND
