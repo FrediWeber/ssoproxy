@@ -3,7 +3,7 @@ set -e
 
 # Create SSL Key if nothing is present
 if [ ! -e "/usr/local/apache2/conf/server.crt" ] && [ ! -e "/usr/local/apache2/conf/server.key" ]; then 
-   openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -subj "/C=/ST=/L=/O=/CN=${HTTPD_SERVERNAME}" \
+   openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -subj "/C=/ST=/L=/O=/CN=localhost" \
      -out "/usr/local/apache2/conf/server.crt" -keyout "/usr/local/apache2/conf/server.key";
 fi
 
