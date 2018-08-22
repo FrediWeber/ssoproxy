@@ -18,5 +18,6 @@ RUN apt-get update && \
 COPY httpd.conf /usr/local/apache2/conf/httpd.conf
 COPY httpd-ssl.conf /usr/local/apache2/conf/extra/httpd-ssl.conf
 COPY httpd-foreground /usr/local/bin/httpd-foreground
+RUN chmod 0554 /usr/local/bin/httpd-foreground
 
 EXPOSE 443/tcp
