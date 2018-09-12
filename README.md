@@ -1,7 +1,6 @@
 # Introduction
 This container provides basic and generic SSO functionality with the help of Apache and Kerberos.  
 The authentication is done via Kerberos and the authorization via LDAP.  
-Please note that the frontend is only available with HTTPS (TLSv1.2).
 
 # Basic functionality
 To have a minimal, working container, you need the following:
@@ -18,6 +17,12 @@ There are several parameters and file mappings you can use, to customize the con
 ## Parameters
 * HTTPD_LOGLEVEL  
 You can define the Apache loglevel with this parameter
+
+* HTTPD_PORT_HTTP  
+Frontent listen port for HTTP. Defaults to 80.
+
+* HTTPD_PORT_SSL  
+Frontent listen port for HTTPS. Defaults to 443.
 
 * HTTPD_PROXY_BACKEND_HOSTNAME  
 This is the backend server, that the proxy is adressing.  
