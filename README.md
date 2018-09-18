@@ -39,6 +39,9 @@ Defaults to `AuthorizedUser`
 * KERBEROS_REALM  
 Specify the Kerberos realm to use. This has to match the realm in the keytab file.
 
+* KERBEROS_SPN  
+Specify the Kerberos SPN. Defaults to "HTTP".
+
 * KERBEROS_KEYTAB_FILE  
 You could change the path to the Kerberos keytab file with this parameter if you want.  
 Defaults to `/usr/local/apache2/conf/kerberos.keytab`
